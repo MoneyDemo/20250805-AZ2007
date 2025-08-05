@@ -83,9 +83,5 @@ function resetTimer(code) {
 // Initialize controls on DOM loaded
 document.addEventListener('DOMContentLoaded', () => {
     setupControls();
-    // Display default stock on load
-    const defaultCode = '{{ default_code }}';
-    const stockInput = document.getElementById('stock-code-input');
-    stockInput.value = defaultCode;
-    fetchAndDisplay(defaultCode);
+    // Note: default code initialization moved to template
 });
