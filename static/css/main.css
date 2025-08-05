@@ -1,0 +1,39 @@
+/* Custom styles for light and dark themes */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #212529;
+    --card-bg: #f8f9e9;
+    --card-border: #dee2e6;
+}
+[data-theme='dark'] {
+    --bg-color: #212529;
+    --text-color: #f8f9fa;
+    --card-bg: #343a40;
+    --card-border: #495057;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.navbar, .alert {
+    background-color: var(--card-bg) !important;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+}
+
+#stock-info .card {
+    margin-top: 1rem;
+}
+
+/* Loading spinner center */
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
