@@ -39,10 +39,13 @@ class StockService:
 
             realtime = result.get('realtime', {})
             price_str = realtime.get('latest_trade_price')
-            if price_str is None:
+            # Handle missing or invalid price data
+            if not price_str or price_str.strip() == '-' :
                 raise StockAPIError(f"No price data for {code}", status_code=404)
-
-            price = float(price_str)
+            try:
+                price = float(price_str)
+            except ValueError:
+                raise StockAPIError(f"Invalid price data for {code}", status_code=502)
             timestamp = datetime.now()
 
             stock = Stock(code=code, price=price, timestamp=timestamp)
